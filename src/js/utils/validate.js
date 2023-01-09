@@ -1,4 +1,4 @@
-import validator from "validator";
+import isEmail from "validator/lib/isEmail";
 
 const classNames={
     validInput:'is-valid',
@@ -20,6 +20,7 @@ export function validate(input) {
     
     function makeValid(text) {
         input.classList.add(classNames.validInput);
+        input.classList.remove(classNames.invalidInput);
         feedbackElem.classList.add(classNames.validText);
         feedbackElem.innerText='';
     };
@@ -28,15 +29,15 @@ export function validate(input) {
         makeInvalid('This field is required');
         return false;
     };
-    if(minLength&&minLength>value ){
+    if(minLength&&minLength>value.length ){
         makeInvalid(`This field should has minimum ${minLength} symbols`);
         return false
     };
-    if(maxLenght&&maxLength<value ){
+    if(maxLenght&&maxLength<value.length ){
         makeInvalid(`This field should has maximum ${maxLenght} symbols`);
         return false
     };
-    if(type==='email' &&validator.isEmail(value)){
+    if(type==='email' && !isEmail(value)){
         makeInvalid(`This field should have a valid email`);
         return false
     };
