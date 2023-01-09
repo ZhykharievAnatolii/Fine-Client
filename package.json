@@ -50,6 +50,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "jest-environment-jsdom": "^28.1.1",
     "msw": "^0.42.1",
     "puppeteer": "^14.4.0",
