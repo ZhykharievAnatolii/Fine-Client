@@ -9,12 +9,37 @@ const classNames={
 }
 
 export function validate(input) {
-    const {value, minLengths, maxLenghts, required}= input;
+    const {value, minLength, maxLenght, required,type}= input;
     const feedbackElem=input.nextElementSibling;
-    if(required&& value===''){
+
+    function makeInvalid(text) {
         input.classList.add(classNames.invalidInput);
         feedbackElem.classList.add(classNames.invalidText);
-        feedbackElem.innerText='This field is required';
-        return false;
+        feedbackElem.innerText=text;
     }
+    
+    function makeValid(text) {
+        input.classList.add(classNames.validInput);
+        feedbackElem.classList.add(classNames.validText);
+        feedbackElem.innerText='';
+    };
+    
+    if(required&& value===''){
+        makeInvalid('This field is required');
+        return false;
+    };
+    if(minLength&&minLength>value ){
+        makeInvalid(`This field should has minimum ${minLength} symbols`);
+        return false
+    };
+    if(maxLenght&&maxLength<value ){
+        makeInvalid(`This field should has maximum ${maxLenght} symbols`);
+        return false
+    };
+    if(type==='email' &&validator.isEmail(value)){
+        makeInvalid(`This field should have a valid email`);
+        return false
+    };
+    makeValid()
+    return true
 }
