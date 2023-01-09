@@ -8,6 +8,28 @@ const classNames={
 
 }
 
+export function validateForm(form,callback) {
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        // [...registerForm.elements].forEach((elem)=>{
+        //     validate(elem)
+        const isValid  = [...form.elements].reduce((accum,elem)=>{
+            const result=elem.matches('input')?validate(elem):true;
+            return !accum? accum:result;
+        }, true);
+        if(isValid){
+            // alert('Success')
+            const body=new FormData(form);
+            callback(body)
+        }
+    });
+
+    form.addEventListener('change',({target})=>{
+        if(target.matches('input')){
+            validate(target);
+        }
+    })
+}
 export function validate(input) {
     const {value, minLength, maxLenght, required,type}= input;
     const feedbackElem=input.nextElementSibling;
