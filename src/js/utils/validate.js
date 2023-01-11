@@ -20,7 +20,7 @@ export function validateForm(form,callback) {
         if(isValid){
             // alert('Success')
             const body=new FormData(form);
-            callback(body)
+            callback(body);
         }
     });
 
