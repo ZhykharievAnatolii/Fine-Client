@@ -11,4 +11,8 @@ export const registerUser=async (body,)=>{
     //     headers
     // }
     return data;
-}
+};
+export const loginUser=async (body,)=>{
+    const {data}=await client.post('/login',body);
+    return data;
+};
