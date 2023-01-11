@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const client= axios.create({
-    baseUrl:'http://localhost:3000/api'
+    baseURL:'http://localhost:3000/api'
 });
 
 export const registerUser=async (body,)=>{
