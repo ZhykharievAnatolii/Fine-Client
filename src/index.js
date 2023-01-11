@@ -2,8 +2,9 @@
 import './scss/index.scss';
 import 'bootstrap';
 import {validateForm} from "./js/utils/validate";
-import {registerUser} from "./js/api";
+import {loginUser, registerUser} from "./js/api";
 import {viewController} from "./js/view/ViewController";
+import {b} from "msw/lib/glossary-58eca5a8";
 
 document.addEventListener('DOMContentLoaded',()=>{
     const registerForm=document.querySelector('.register-form');
@@ -16,6 +17,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     });
     validateForm(loginForm, async (body)=>{
-
+    const {token, email}=await loginUser(body)
     })
 })
