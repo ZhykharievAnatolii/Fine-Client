@@ -41,4 +41,4 @@ class Header {
     }
 }
 
-const header=new Header();
+export const header=new Header();
