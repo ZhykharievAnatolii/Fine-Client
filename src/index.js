@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const info=await registerUser(body)
         // console.log(info)
         viewController.openLoginPage();
+        registerForm.reset();
 
     });
     validateForm(loginForm, async (body)=>{
@@ -30,5 +31,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     store.saveData({toke,email});
     viewController.openDashBoard();
     header.openLoggedInView();
+    loginForm.reset();
     })
 })
