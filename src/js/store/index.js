@@ -11,7 +11,14 @@ class Store {
         this.token=token,
         this.email=email,
             this.updateWithStorage()
+    };
+
+    clearData(){
+        this.token=null,
+        this.email=null,
+            this.updateWithStorage()
     }
+
     updateWithStorage(){
         localStorage.userinfo=JSON.stringify({
             token:this.token,
