@@ -12,6 +12,12 @@ import {alertMessage} from "./js/view/alert";
 // window.viewController=viewController
 
 document.addEventListener('DOMContentLoaded',()=>{
+    if(store.isLoggedIn){
+        viewController.openDashBoard();
+    }else {
+        viewController.openLoginPage();
+    }
+
     viewController.openLoginPage();
     /**
      * type {HtmlFormElement}
