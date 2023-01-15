@@ -15,6 +15,9 @@ await client.post('/register',body);
 export const loginUser=async (body,)=>
     await client.post('/login',body);
 
+export const getFinesUser=async (body,)=>
+    await client.get('/fines',body);
+
 
 // export const registerUser=async (body,)=>{
 //     const {data}=await client.post('/register',body);
