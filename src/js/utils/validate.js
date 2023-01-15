@@ -1,14 +1,14 @@
-import {isEmail,isStrongPassword} from "validator/lib/isEmail";
+import {isEmail} from "validator/lib/isEmail";
 
-/**
- * @param {HTMLFormElement}
- * @param {function} callback
- * @type {{invalidInput: string, validText: string, invalidText: string, validInput: string}}
- */
-
+// /**
+//  * @param {HTMLFormElement}
+//  * @param {function} callback
+//  * @type {{invalidInput: string, validText: string, invalidText: string, validInput: string}}
+//  */
 //
+// //
 
-export function makeValidation(HTMLFormElement, callcack) {
+// export function makeValidation(HTMLFormElement, callcack) {
 //     form.onsubmit=(SubmitEvent)=>{
 //         event.preventDefault();
 //         const isValid  = [...form.elements].reduce((accum,elem)=>{
