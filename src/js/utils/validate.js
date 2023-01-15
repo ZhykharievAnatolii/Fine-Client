@@ -91,4 +91,3 @@ export function validate(input) {
     makeValid()
     return true
 }
-}

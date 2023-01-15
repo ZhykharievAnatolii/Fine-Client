@@ -9,7 +9,14 @@ import {store} from "./js/store";
 import {header} from "./js/view/header";
 import {alertMessage} from "./js/view/alert";
 
+// window.viewController=viewController
+
 document.addEventListener('DOMContentLoaded',()=>{
+    viewController.openLoginPage();
+    /**
+     * type {HtmlFormElement}
+     */
+
     viewController.openLoginPage();
     header.openLoggedOutView();
     if(store.token){
@@ -18,6 +25,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     }
     const registerForm=document.querySelector('.register-form');
+    /**
+     * type {HtmlFormElement}
+     */
+
     const loginForm=document.querySelector('.login-form');
 
     validateForm(registerForm,async (body)=>{
