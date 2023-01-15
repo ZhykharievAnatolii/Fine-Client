@@ -1,5 +1,30 @@
-import isEmail from "validator/lib/isEmail";
+import {isEmail,isStrongPassword} from "validator/lib/isEmail";
 
+/**
+ * @param {HTMLFormElement}
+ * @param {function} callback
+ * @type {{invalidInput: string, validText: string, invalidText: string, validInput: string}}
+ */
+
+//
+
+export function makeValidation(HTMLFormElement, callcack) {
+//     form.onsubmit=(SubmitEvent)=>{
+//         event.preventDefault();
+//         const isValid  = [...form.elements].reduce((accum,elem)=>{
+//             const result=elem.matches('input')?validate(elem):true;
+//             return !accum? accum:result;
+//         }, true);
+//         if(isValid){
+//             // alert('Success')
+//             // const body=new FormData(form);
+//             callback();
+//
+//     }
+//
+//
+//
+// }
 const classNames={
     validInput:'is-valid',
     invalidInput:'is-invalid',
@@ -65,4 +90,5 @@ export function validate(input) {
     };
     makeValid()
     return true
+}
 }
