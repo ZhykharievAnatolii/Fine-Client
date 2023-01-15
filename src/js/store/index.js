@@ -23,7 +23,10 @@ class Store {
         localStorage.userinfo=JSON.stringify({
             token:this.token,
             email:this.email
-        })
+        });
+    }
+    get isLoggedIn(){
+        return !!this.token
     }
 };
 
