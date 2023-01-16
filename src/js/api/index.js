@@ -1,8 +1,12 @@
 import axios from "axios";
+import {store} from "../store";
 
 
 export const client= axios.create({
-    baseURL:'http://localhost:3000/api'
+    baseURL:'http://localhost:3000/api',
+    headers:{
+        token:store.token,
+    }
 });
 
 export const registerUser=async (body,)=>

@@ -2,7 +2,7 @@
 import './scss/index.scss';
 import 'bootstrap';
 import {validateForm} from "./js/utils/validate";
-import {loginUser, registerUser} from "./js/api";
+import {getFinesUser, loginUser, registerUser} from "./js/api";
 import {viewController} from "./js/view/ViewController";
 // import {b} from "msw/lib/glossary-58eca5a8";
 import {store} from "./js/store";
@@ -11,9 +11,14 @@ import {alertMessage} from "./js/view/alert";
 
 // window.viewController=viewController
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async ()=>{
     if(store.isLoggedIn){
         viewController.openDashBoard();
+        try {
+           await getFinesUser()
+        }catch (err) {
+            
+        }
     }else {
         viewController.openLoginPage();
     }
@@ -43,6 +48,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         // console.log(info)
         viewController.openLoginPage();
         registerForm.reset();
+        // viewController.openDashBoard();
         }catch (err){
             // console.log(err.response.data)
             alertMessage.showAlertMessage('registration',err.response.data.message())
