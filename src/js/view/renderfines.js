@@ -12,7 +12,11 @@ export function renderFines({id,amount,description,date,deadLine,paid}) {
         '        </div>' 
         '        <ul class="list-group list-group-flush">' 
         '          <li class="list-group-item">${format(new Date(date), yyyy, MM, dd)}</li>' 
-        '          <li class="list-group-item">${deadLine}</li>' 
+        '          <li class="list-group-item">${formatDistance(
+            new Date(deadLine),
+        new Date(),
+        { addSuffix: true }
+    )}</li>' 
         '          <li class="list-group-item">${paid}</li>' 
         '        </ul>\
         '        <div class="card-body">
