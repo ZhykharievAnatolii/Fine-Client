@@ -8,6 +8,7 @@ import {viewController} from "./js/view/ViewController";
 import {store} from "./js/store";
 import {header} from "./js/view/header";
 import {alertMessage} from "./js/view/alert";
+import {renderFines} from "./js/view/renderfines";
 
 // window.viewController=viewController
 
@@ -15,7 +16,8 @@ document.addEventListener('DOMContentLoaded',async ()=>{
     if(store.isLoggedIn){
         viewController.openDashBoard();
         try {
-           await getFinesUser()
+           await getFinesUser();
+           data.forEach(renderFines);
         }catch (err) {
             
         }
